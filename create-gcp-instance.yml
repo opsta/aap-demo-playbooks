@@ -1,0 +1,7 @@
+---
+- name: Create GCP instance
+  hosts: all
+  connection: local
+  gather_facts: false
+  roles:
+    - gcp_instance

@@ -1,0 +1,6 @@
+- src: https://github.com/opsta/ansible-gcp-instance.git
+  version: "main"
+  name: gcp_instance
+- src: https://github.com/opsta/ansible-mongodb.git
+  version: "master"
+  name: mongodb

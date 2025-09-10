@@ -1,0 +1,5 @@
+roles/*
+inventories/*
+files/*
+.ansible/
+.vscode/
