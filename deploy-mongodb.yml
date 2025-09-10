@@ -1,0 +1,6 @@
+---
+- name: Deploy MongoDB
+  hosts: "{{ gcp_instance_name }}"
+  gather_facts: true
+  roles:
+    - mongodb
