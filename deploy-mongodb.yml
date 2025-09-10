@@ -1,6 +1,8 @@
 ---
 - name: Deploy MongoDB
-  hosts: "{{ gcp_instance_name }}"
+  hosts: "{{ gcp_instance_name | replace('-', '_') }}"
   gather_facts: true
   roles:
     - mongodb
+  vars:
+    gcp_instance_name: CHANGEME
