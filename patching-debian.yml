@@ -1,6 +1,6 @@
 ---
 - name: Patch a package to a specific version on Debian/Ubuntu
-  hosts: all
+  hosts: debian
   become: true
   vars:
     package_name: CHANGEME
