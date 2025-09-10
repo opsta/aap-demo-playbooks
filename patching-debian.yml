@@ -1,0 +1,17 @@
+---
+- name: Patch a package to a specific version on Debian/Ubuntu
+  hosts: all
+  become: true
+  vars:
+    package_name: CHANGEME
+    package_version: CHANGEME
+
+  tasks:
+    - name: Update APT package cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: "Ensure {{ package_name }} is at version {{ package_version }}"
+      ansible.builtin.apt:
+        name: "{{ package_name }}={{ package_version }}"
+        state: present
