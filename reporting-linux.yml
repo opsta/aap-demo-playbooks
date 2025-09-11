@@ -2,11 +2,6 @@
 - name: Build inventory report
   hosts: debian
   tasks:
-    - name: Debug hostvars
-      ansible.builtin.debug:
-        var: hostvars
-      delegate_to: localhost
-      run_once: true
     - name: Build report.html
       ansible.builtin.template:
         src: reports/table-template.html
