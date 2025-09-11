@@ -47,27 +47,27 @@
   {% for host in hostvars %}
   <tr>
     <td>{{ loop.index }}</td>
-    <td>{{ hostvars[host].ansible_hostname }}</td>
-    <td>{{ hostvars[host].ansible_all_ipv4_addresses | join(", ") }}</td>
+    <td>{{ hostvars[loop.index].ansible_hostname }}</td>
+    <td>{{ hostvars[loop.index].ansible_all_ipv4_addresses | join(", ") }}</td>
     <td>
-    {% for device in hostvars[host].ansible_devices|dict2items %}
+    {% for device in hostvars[loop.index].ansible_devices|dict2items %}
       {% if device.key.startswith('loop') is not true %}
       {{ device.key }} has {{ device.value['size'] }}<br/>
       {% endif %}
     {% endfor %}
     </td>
-    <td>{{ hostvars[host].ansible_distribution }} {{ ansible_distribution_version }}</td>
-    <td>{{ hostvars[host].ansible_kernel }}</td>
-    <td>{{ hostvars[host].ansible_processor_vcpus }}</td>
-    <td>{{ '%.2f' | format(hostvars[host].ansible_memtotal_mb/1024) }}GB</td>
+    <td>{{ hostvars[loop.index].ansible_distribution }} {{ ansible_distribution_version }}</td>
+    <td>{{ hostvars[loop.index].ansible_kernel }}</td>
+    <td>{{ hostvars[loop.index].ansible_processor_vcpus }}</td>
+    <td>{{ '%.2f' | format(hostvars[loop.index].ansible_memtotal_mb/1024) }}GB</td>
     <td>
-    {% for mount in hostvars[host].ansible_mounts %}
+    {% for mount in hostvars[loop.index].ansible_mounts %}
       {% if mount['device'].startswith('/dev/loop') is not true %}
       {{ mount['device'] }} mount at {{ mount['mount'] }} uses {{ '%.2f' | format(mount['size_available']/1024/1024/1024) }}GB of {{ '%.2f' | format(mount['size_total']/1024/1024/1024) }}GB<br/>
       {% endif %}
     {% endfor %}
     </td>
-    <td>{{ hostvars[host].ansible_date_time['iso8601'] }}</td>
+    <td>{{ hostvars[loop.index].ansible_date_time['iso8601'] }}</td>
   </tr>
   {% endfor %}
 
