@@ -1,6 +1,6 @@
 ---
 - name: Build inventory report
-  hosts: 
+  hosts: debian
   gather_facts: true
   become: true
   tasks:
