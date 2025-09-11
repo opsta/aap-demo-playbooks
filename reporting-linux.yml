@@ -1,14 +1,12 @@
 ---
 - name: Build inventory report
   hosts: debian
-  gather_facts: true
-  become: true
   tasks:
-  - name: Build report.html
-    template:
-      src: reports/table-template.html
-      dest: "reports/{{ report_filename }}"
-    delegate_to: localhost
-    run_once: true
+    - name: Build report.html
+      ansible.builtin.template:
+        src: reports/table-template.html
+        dest: "reports/{{ report_filename }}"
+      delegate_to: localhost
+      run_once: true
   vars:
     report_filename: "{{ ansible_date_time.iso8601_basic_short }}-report.html"

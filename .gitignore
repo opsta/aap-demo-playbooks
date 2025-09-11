@@ -3,3 +3,4 @@ inventories/*
 files/*
 .ansible/
 .vscode/
+reports/*-report.html
